@@ -35,6 +35,15 @@ func (l *list[T]) add(data T) {
 	l.start = temp
 }
 
+func PrintMe[T any](l list[T]) {
+	node := l.start
+	for node != nil {
+		fmt.Print(node.Data, " ")
+		node = node.next
+	}
+	fmt.Println()
+}
+
 func main() {
 	var myList list[int]
 	fmt.Println(myList)
@@ -42,6 +51,7 @@ func main() {
 	myList.add(9)
 	myList.add(3)
 	myList.add(9)
+	PrintMe(myList)
 
 	// Print all elements
 	cur := myList.start
